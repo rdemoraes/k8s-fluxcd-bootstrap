@@ -14,7 +14,7 @@ flux bootstrap github \
   --owner=$GITHUB_USERNAME \
   --repository=$REPOSITORY_URL \
   --branch=main \
-  --path=clusters/my-cluster \
+  --path=bootstrap/argocd \
   --personal \
   --token-auth=$GITHUB_TOKEN
 
