@@ -2,8 +2,7 @@
 
 # GitHub credentials
 GITHUB_USERNAME=rdemoraes
-REPOSITORY_URL=git@github.com:$(GITHUB_USERNAME)/k8s-fluxcd-bootstrap.git
-GITHUB_TOKEN=<PAT>
+REPOSITORY_URL="git@github.com:rdemoraes/k8s-fluxcd-bootstrap.git"
 
 # Kubernetes namespace
 NAMESPACE="fluxcd"
@@ -15,7 +14,12 @@ if ! command -v flux &> /dev/null; then
 fi
 
 # Create Kubernetes namespace
-kubectl create namespace $NAMESPACE
+if kubectl get namespace "$NAMESPACE" &> /dev/null; then
+    echo "Namespace $NAMESPACE already exists."
+else
+    kubectl create namespace "$NAMESPACE"
+    echo "Namespace $NAMESPACE created."
+fi
 
 # Bootstrap FluxCD
 flux bootstrap github \
@@ -24,7 +28,7 @@ flux bootstrap github \
   --branch=main \
   --path=bootstrap/argocd \
   --personal \
-  --token-auth=$GITHUB_TOKEN
+  --token-auth=true
 
 # Wait for FluxCD to sync
 echo "Waiting for FluxCD to synchronize..."
