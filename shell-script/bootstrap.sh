@@ -1,5 +1,13 @@
 #!/bin/bash
 
+# GitHub credentials
+GITHUB_USERNAME=rdemoraes
+REPOSITORY_URL=git@github.com:$(GITHUB_USERNAME)/k8s-fluxcd-bootstrap.git
+GITHUB_TOKEN=<PAT>
+
+# Kubernetes namespace
+NAMESPACE="fluxcd"
+
 # Install Flux CLI (if not already installed)
 if ! command -v flux &> /dev/null; then
     echo "Installing flux CLI..."
