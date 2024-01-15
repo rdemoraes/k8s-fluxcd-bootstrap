@@ -1,0 +1,28 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: argocd-rbac-cm
+  namespace: argocd
+data:
+  policy.csv: |
+    g, argocd_admins, role:admin
+    g, argocd_users, role:readonly
+    g, argocd_deleters, role:deleters
+    p, role:readonly, applications, get, orion/*, allow
+    p, role:deleters, applications, sync, *dev*, allow
+    p, role:deleters, applications, delete, *dev*, allow
+    p, role:deleters, applications, action/apps/Deployment/restart, *dev*, allow
+    p, role:deleters, applications, sync, *edge*, allow
+    p, role:deleters, applications, delete, *edge*, allow
+    p, role:deleters, applications, action/apps/Deployment/restart, *edge*, allow
+    p, role:deleters, applications, sync, *staging*, allow
+    p, role:deleters, applications, delete, *staging*, allow
+    p, role:deleters, applications, action/apps/Deployment/restart, *staging*, allow
+    p, role:deleters, applications, sync, *int*, allow
+    p, role:deleters, applications, delete, *int*, allow
+    p, role:deleters, applications, action/apps/Deployment/restart, *int*, allow
+    g, "41db3780-c896-4b7b-ae08-779711b99268", role:admin
+    g, "62fc247b-3321-4af0-881a-a2e0678cd51c", role:readonly
+    g, "5275dff1-0290-44ae-a72b-d5bfcb1a7963", role:deleters
+  policy.default: ""
+  scopes: '[email,groups]'

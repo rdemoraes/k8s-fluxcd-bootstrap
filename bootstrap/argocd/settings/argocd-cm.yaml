@@ -1,0 +1,31 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: argocd-cm
+  namespace: argocd
+data:
+  admin.enabled: "true"
+  application.instanceLabelKey: argocd.argoproj.io/instance
+  exec.enabled: "false"
+  server.rbac.log.enforce.enable: "false"
+  timeout: map[reconciliation:36000]
+  timeout.hard.reconciliation: 0s
+  timeout.reconciliation: 180s
+  url: https://argocd.local
+  #dex.config: |
+  #  logger:
+  #    level: debug
+  #    format: json
+  #  connectors:
+  #  - type: saml
+  #    id: entra
+  #    name: EntraID
+  #    config:
+  #      ssoURL: https://<sso-url>
+  #      entityIssuer: https://argocd.local/api/dex/callback
+  #      caData: |
+  #        <base64>
+  #      redirectURI: https://argocd.local/api/dex/callback
+  #      usernameAttr: email
+  #      emailAttr: email
+  #      groupsAttr: Group

@@ -1,0 +1,11 @@
+# additional resources like ingress rules, cluster and repository secrets.
+resources:
+- github.com/argoproj/argo-cd//manifests/cluster-install?ref=v2.9.3
+#- clusters-secrets.yaml
+#- repos-secrets.yaml
+- settings/repositories.yaml
+
+# changes to config maps
+patches:
+- path: settings/argocd-cm.yaml
+- path: settings/argocd-rbac-cm.yaml
