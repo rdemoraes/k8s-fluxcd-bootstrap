@@ -2,7 +2,7 @@
 
 # GitHub credentials
 GITHUB_USERNAME=rdemoraes
-REPOSITORY_URL="git@github.com:rdemoraes/k8s-fluxcd-bootstrap.git"
+GITHUB_REPOSITORY="k8s-fluxcd-bootstrap"
 
 # Kubernetes namespace
 NAMESPACE="fluxcd"
@@ -24,7 +24,7 @@ fi
 # Bootstrap FluxCD
 flux bootstrap github \
   --owner=$GITHUB_USERNAME \
-  --repository=$REPOSITORY_URL \
+  --repository=$GITHUB_REPOSITORY \
   --branch=main \
   --path=bootstrap/argocd \
   --personal \
