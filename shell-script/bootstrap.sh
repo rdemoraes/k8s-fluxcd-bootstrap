@@ -26,7 +26,7 @@ flux bootstrap github \
   --owner=$GITHUB_USERNAME \
   --repository=$GITHUB_REPOSITORY \
   --branch=main \
-  --path=bootstrap/argocd \
+  --path=bootstrap \
   --personal \
   --token-auth=true
 
