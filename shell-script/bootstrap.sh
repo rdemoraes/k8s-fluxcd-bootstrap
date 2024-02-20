@@ -1,8 +1,14 @@
 #!/bin/bash
 
+set -o allexport
+
 # GitHub credentials
 GITHUB_USERNAME=rdemoraes
 GITHUB_REPOSITORY="k8s-fluxcd-bootstrap"
+
+# Load environment variable containing GitHub token
+source .env set
++o allexport
 
 # Kubernetes namespace
 NAMESPACE="fluxcd"
