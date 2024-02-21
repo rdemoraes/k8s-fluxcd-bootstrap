@@ -2,16 +2,12 @@
 
 set -o allexport
 
-# GitHub credentials
-GITHUB_USERNAME=rdemoraes
-GITHUB_REPOSITORY="k8s-fluxcd-bootstrap"
+FLUX_BOOTSTRAP_PATH=$1
+NAMESPACE="fluxcd"
 
-# Load environment variable containing GitHub token
+# Load environment variable containing GitHub repository, username and token
 source .env set
 +o allexport
-
-# Kubernetes namespace
-NAMESPACE="fluxcd"
 
 # Install Flux CLI (if not already installed)
 if ! command -v flux &> /dev/null; then
@@ -32,7 +28,7 @@ flux bootstrap github \
   --owner=$GITHUB_USERNAME \
   --repository=$GITHUB_REPOSITORY \
   --branch=main \
-  --path=bootstrap/clusters/sandman01 \
+  --path=$FLUX_BOOTSTRAP_PATH \
   --personal \
   --token-auth=true
 

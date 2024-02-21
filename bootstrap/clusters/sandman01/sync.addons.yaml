@@ -6,9 +6,12 @@ metadata:
   namespace: flux-system
 spec:
   interval: 5m0s
-  path: ./bootstrap/clusters/sandman01/argocd
-  prune: true
   sourceRef:
     kind: GitRepository
     name: argocd
+  serviceAccountName: kustomize-controller
   targetNamespace: argocd
+  path: ./addons/argocd
+  prune: true
+  wait: true
+  timeout: 10m
