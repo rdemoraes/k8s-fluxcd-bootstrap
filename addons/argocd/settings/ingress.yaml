@@ -3,7 +3,7 @@ kind: Ingress
 metadata:
   name: argocd-server
 spec:
-  ingressClassName: internal-nginx-controller
+  ingressClassName: public
   rules:
   - host: argocd.sandman01.k8s.local
     http:
