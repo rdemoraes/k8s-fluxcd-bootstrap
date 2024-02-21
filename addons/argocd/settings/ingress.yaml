@@ -5,7 +5,7 @@ metadata:
   annotations:
     #cert-manager.io/cluster-issuer: letsencrypt-production
     nginx.ingress.kubernetes.io/use-regex: "true"
-    nginx.ingress.kubernetes.io/temporal-redirect: https://sandman01.k8s.local$request_uri
+    nginx.ingress.kubernetes.io/temporal-redirect: https://argocd.sandman01.k8s.local$request_uri
 spec:
   ingressClassName: public
   rules:
