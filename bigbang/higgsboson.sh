@@ -1,13 +1,11 @@
 #!/bin/bash
 
+# Load environment variable containing GitHub repository, username and token
+source "$(dirname "$0")/.env"
 set -o allexport
 
 FLUX_BOOTSTRAP_PATH=$1
 NAMESPACE="fluxcd"
-
-# Load environment variable containing GitHub repository, username and token
-source .env set
-+o allexport
 
 # Install Flux CLI (if not already installed)
 if ! command -v flux &> /dev/null; then
