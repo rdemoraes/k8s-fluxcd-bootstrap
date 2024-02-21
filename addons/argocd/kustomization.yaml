@@ -7,6 +7,7 @@ resources:
 #- clusters-secrets.yaml
 #- repos-secrets.yaml
 - settings/repositories.yaml
+- settings/ingress.yaml
 patchesStrategicMerge:
 - settings/argocd-cm.yaml
 - settings/argocd-rbac-cm.yaml
