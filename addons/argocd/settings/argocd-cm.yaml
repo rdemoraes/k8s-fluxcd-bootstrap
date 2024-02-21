@@ -10,7 +10,7 @@ data:
   timeout: map[reconciliation:36000]
   timeout.hard.reconciliation: 0s
   timeout.reconciliation: 180s
-  url: https://argocd.local
+  url: https://argocd.sandman01.k8s.local
   #dex.config: |
   #  logger:
   #    level: debug
@@ -21,10 +21,10 @@ data:
   #    name: EntraID
   #    config:
   #      ssoURL: https://<sso-url>
-  #      entityIssuer: https://argocd.local/api/dex/callback
+  #      entityIssuer: https://argocd.sandman01.k8s.local/api/dex/callback
   #      caData: |
   #        <base64>
-  #      redirectURI: https://argocd.local/api/dex/callback
+  #      redirectURI: https://argocd.sandman01.k8s.local/api/dex/callback
   #      usernameAttr: email
   #      emailAttr: email
   #      groupsAttr: Group
